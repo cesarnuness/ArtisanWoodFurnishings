@@ -1,9 +1,3 @@
-# ArtisanWoodFurnishings
-
-# E-Commerce Backend Project
-
-Este repositório contém o código-fonte e a documentação para um e-commerce simples com recursos de categorias, produtos, usuários, carrinho de compras, pedidos e integração de pagamento. O foco principal deste projeto é o desenvolvimento do backend, utilizando as tecnologias TypeScript, Node.js, Nest e Postgres. A seguir, estão listadas as etapas e os componentes principais do projeto.
-
 ## Stack Tecnológica
 
 - TypeScript
