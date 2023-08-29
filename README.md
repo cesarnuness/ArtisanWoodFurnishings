@@ -1,3 +1,52 @@
+# ArtisanWoodFurnishings
+
+# E-Commerce Backend Project
+
+Este repositório contém o código-fonte e a documentação para um e-commerce simples com recursos de categorias, produtos, usuários, carrinho de compras, pedidos e integração de pagamento. O foco principal deste projeto é o desenvolvimento do backend, utilizando as tecnologias TypeScript, Node.js, Nest e Postgres. A seguir, estão listadas as etapas e os componentes principais do projeto.
+
+## Stack Tecnológica
+
+- TypeScript
+- Node.js
+- Nest
+- Postgres
+- Docker
+
+## Etapas do Projeto
+
+### 1. Produto e Categoria
+
+- Implementar a funcionalidade de gerenciamento de produtos e categorias.
+- Estabelecer um relacionamento de muitos para muitos entre produtos e categorias.
+- Cada produto pode pertencer a várias categorias e vice-versa.
+
+### 2. Autenticação e Autorização
+
+- Desenvolver um sistema de autenticação e registro de usuários.
+- Definir diferentes funções de usuário: Admin, User e Anonymous.
+- Restrinjir o acesso às APIs de acordo com as funções do usuário.
+- Exemplo: Administradores podem criar produtos e categorias, enquanto usuários e usuários anônimos podem visualizar/listar produtos e categorias.
+
+### 3. Carrinho de Compras e Pedidos
+
+- Implementar um sistema de carrinho de compras.
+- Todos os usuários podem ter um carrinho, mas apenas usuários autenticados podem efetuar pedidos.
+
+### 4. Integração com ElasticSearch
+
+- Integrar o ElasticSearch para indexar os produtos.
+- Permitir a busca eficiente de produtos utilizando recursos de pesquisa do ElasticSearch.
+
+### 5. Integração de Pagamento
+
+- Integração do sistema de pedidos com um provedor de pagamento, como PayPal ou Stripe.
+- Permita que os usuários realizem pagamentos para os pedidos efetuados.
+
+### 6. Implantação na AWS
+
+- Fazer o deploy de todo o sistema na AWS, utilizando EC2 ou AWS Fargate.
+- Certificar-se de gerenciar cuidadosamente os recursos para evitar custos excessivos.
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
