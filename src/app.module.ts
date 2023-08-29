@@ -9,10 +9,20 @@ import { OrderModule } from './order/order.module';
 import { ElasticSearchModule } from './elastic-search/elastic-search.module';
 import { PaymentModule } from './payment/payment.module';
 import { AwsDeploymentModule } from './aws-deployment/aws-deployment.module';
+import TestController from './test/test.controller';
 
 @Module({
-  imports: [AuthModule, CategoryModule, ProductModule, CartModule, OrderModule, ElasticSearchModule, PaymentModule, AwsDeploymentModule],
-  controllers: [AppController],
+  imports: [
+    AuthModule,
+    CategoryModule,
+    ProductModule,
+    CartModule,
+    OrderModule,
+    ElasticSearchModule,
+    PaymentModule,
+    AwsDeploymentModule,
+  ],
+  controllers: [AppController, TestController],
   providers: [AppService],
 })
 export class AppModule {}
