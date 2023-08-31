@@ -5,7 +5,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 @Injectable()
 export class ProductsService {
   create(createProductDto: CreateProductDto) {
-    return 'This action adds a new product';
+    return `This action adds a new product ${createProductDto}`;
   }
 
   findAll() {
@@ -17,7 +17,7 @@ export class ProductsService {
   }
 
   update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+    return `This action updates a #${id} ${updateProductDto} product`;
   }
 
   remove(id: number) {
