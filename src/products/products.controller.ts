@@ -54,7 +54,6 @@ export class ProductsController {
     const priceFloat = parseFloat(price);
     const quantityInt = parseInt(quantity);
     const publishedBool = published === 'on' ? true : false;
-
     const product = await prisma.product.create({
       data: {
         name,
