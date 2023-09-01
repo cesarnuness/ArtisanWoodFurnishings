@@ -58,7 +58,7 @@ export class ProductsController {
       data: {
         name,
         description,
-        price: priceFloat, // Use the parsed float value
+        price: priceFloat,
         photo,
         quantity: quantityInt,
         published: publishedBool,
