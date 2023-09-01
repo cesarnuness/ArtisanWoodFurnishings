@@ -11,8 +11,13 @@
 
     <% for (const product of products) { %>
     <div>
-      <h3><%= `ID: ${product.id} NAME: ${product.name}` %></h3>
+      <h3>
+        <%= `Id: ${product.id} Name: ${product.name}` %>
+        <a href="/products/<%= product.id %>">View</a>
+      </h3>
     </div>
     <% } %>
+
+    <a href="/products/new">Create New Product</a>
   </body>
 </html>

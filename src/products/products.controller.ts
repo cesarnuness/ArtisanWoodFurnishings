@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   Render,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -15,6 +16,7 @@ import { PrismaClient } from '@prisma/client';
 
 @Controller('products')
 export class ProductsController {
+  prismaService: any;
   constructor(private readonly productsService: ProductsService) {}
 
   @Post()
@@ -41,9 +43,7 @@ export class ProductsController {
 
   @Get('new')
   @Render('products/newproduct')
-  newProduct() {
-    return { message: 'Hello world!' };
-  }
+  newProduct() {}
 
   @Post('create')
   async createProduct(@Body() body) {
@@ -69,8 +69,19 @@ export class ProductsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
+  @Render('products/product') // 'products/product' should be the name of your EJS template file
+  async findOne(@Param('id', ParseIntPipe) id: number) {
+    const prisma = new PrismaClient();
+    const product = await prisma.product.findUnique({
+      where: { id },
+    });
+
+    if (!product) {
+      // Handle the case when the product is not found
+    }
+
+    // Pass the product data to the EJS template
+    return { product: product }; // Ensure 'product' is defined in the returned object
   }
 
   @Patch(':id')
