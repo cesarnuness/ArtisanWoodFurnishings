@@ -35,7 +35,7 @@ model Product {
   published         Boolean           @default(false)
   quantity          Int
   creator           User?             @relation(fields: [creatorId], references: [id])
-  creatorId         Int?
+  creatorId         Int?              @default(1)
   carts             Cart[]
   orders            Order[]
   categories        Category[]
