@@ -1,3 +1,23 @@
+## Conceitos
+- Git
+- Dependências (Packages.json)
+- Configurações (dev / env / production)
+- Serviços independentes (Containers Docker)
+- Build, release, run
+- Processos (Stateless) - readyonly - only persists external stuff. (AWS S3 - paper Trail)
+- Port binding
+- Concurrency (Horizontal scaling) - Load Balancer
+- Disposability (Sigterm, graceful shutdown, rolling restart) - Tudo descartável nos containeres
+- Dev/prod similares (cotinuous deployment, testes com github actions)
+- Logs (STDOUT nos containeres, papertrail, logstash, kubana)
+- Admin processes
+
+- Testes Unitários
+- Integração continua (git rebase)
+- Git actions (rodar testes automaticamente)
+- Branch main - Sagrado
+- Staging automático (Para testes)
+
 ## Stack Tecnológica
 
 - TypeScript
