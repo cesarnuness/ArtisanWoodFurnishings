@@ -19,11 +19,6 @@ model User {
   name          String?
   address       String?
   password      String?
-  role          UserRole      @default(ANONYMOUS)
-  products      Product[]
-  carts         Cart[]
-  orders        Order[]
-  productUsers  ProductUser[]
 }
 
 model Product {
@@ -34,53 +29,34 @@ model Product {
   photo             String?
   published         Boolean           @default(false)
   quantity          Int
-  creator           User?             @relation(fields: [creatorId], references: [id])
-  creatorId         Int?              @default(1)
-  carts             Cart[]
-  orders            Order[]
-  categories        Category[]
-  productCategories ProductCategory[]
-  productOrders     ProductOrder[]
-  productCarts      ProductCart[]
-  productUsers      ProductUser[]
 }
 
 model Cart {
   id                 Int               @id @default(autoincrement())
-  user               User              @relation(fields: [userId], references: [id])
   userId             Int
-  products           Product[]
   total              Float
   status             String
   createdAt          DateTime          @default(now())
   updatedAt          DateTime          @updatedAt
-  ProductCart        ProductCart[]
 }
 
 model Order {
   id                 Int               @id @default(autoincrement())
-  user               User              @relation(fields: [userId], references: [id])
   userId             Int
-  products           Product[]
   total              Float
   status             String
   createdAt          DateTime          @default(now())
   updatedAt          DateTime          @updatedAt
-  ProductOrder       ProductOrder[]
 }
 
 model Category {
   id                 Int               @id @default(autoincrement())
   name               String
-  products           ProductCategory[]
-  product            Product[]
 }
 
 model ProductCategory {
   id                 Int               @id @default(autoincrement())
-  product            Product           @relation(fields: [productId], references: [id])
   productId          Int
-  category           Category          @relation(fields: [categoryId], references: [id])
   categoryId         Int
 
   @@unique([productId, categoryId])
@@ -88,24 +64,18 @@ model ProductCategory {
 
 model ProductOrder {
   id                 Int               @id @default(autoincrement())
-  product            Product           @relation(fields: [productId], references: [id])
   productId          Int
-  order              Order             @relation(fields: [orderId], references: [id])
   orderId            Int
 }
 
 model ProductCart {
   id                 Int               @id @default(autoincrement())
-  product            Product           @relation(fields: [productId], references: [id])
   productId          Int
-  cart               Cart              @relation(fields: [cartId], references: [id])
   cartId             Int
 }
 
 model ProductUser {
   id                 Int               @id @default(autoincrement())
-  product            Product           @relation(fields: [productId], references: [id])
   productId          Int
-  user               User              @relation(fields: [userId], references: [id])
   userId             Int
 }

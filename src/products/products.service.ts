@@ -8,26 +8,33 @@ import { UpdatePatchProductDto } from './dto/update-patch-product.dto';
 export class ProductsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  create(data: CreateProductDto) {
-    return this.prisma.product.create({ data });
+  async create(data: CreateProductDto) {
+    const convertedData = {
+      ...data,
+      price: parseFloat(data.price), // Convert price to float
+      published: data.published === true, // Convert published to boolean
+      quantity: parseInt(data.quantity, 10), // Convert quantity to integer
+    };
+
+    return this.prisma.product.create({ data: convertedData });
   }
 
-  findAll() {
+  async findAll() {
     return this.prisma.product.findMany();
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return this.prisma.product.findUnique({ where: { id } });
   }
 
-  update(id: number, data: UpdatePatchProductDto) {
+  async update(id: number, data: UpdatePatchProductDto) {
     return this.prisma.product.update({
       data,
       where: { id },
     });
   }
 
-  put(id: number, data: UpdatePutProductDto) {
+  async put(id: number, data: UpdatePutProductDto) {
     for (const key in data) {
       if (data[key] === undefined) {
         data[key] = '';
@@ -39,7 +46,7 @@ export class ProductsService {
     });
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return this.prisma.product.delete({
       where: { id },
     });
