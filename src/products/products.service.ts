@@ -11,9 +11,9 @@ export class ProductsService {
   async create(data: CreateProductDto) {
     const convertedData = {
       ...data,
-      price: parseFloat(data.price), // Convert price to float
-      published: data.published === true, // Convert published to boolean
-      quantity: parseInt(data.quantity, 10), // Convert quantity to integer
+      price: parseFloat(data.price),
+      published: data.published === true,
+      quantity: parseInt(data.quantity, 10),
     };
 
     return this.prisma.product.create({ data: convertedData });
@@ -28,8 +28,15 @@ export class ProductsService {
   }
 
   async update(id: number, data: UpdatePatchProductDto) {
+    const convertedData = {
+      ...data,
+      price: parseFloat(data.price),
+      published: data.published === true,
+      quantity: parseInt(data.quantity, 10),
+    };
+
     return this.prisma.product.update({
-      data,
+      data: convertedData,
       where: { id },
     });
   }
