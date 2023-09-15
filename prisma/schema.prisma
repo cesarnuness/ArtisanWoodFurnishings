@@ -7,18 +7,75 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Post {
-  id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  Int?
+enum UserRole {
+  ADMIN
+  USER
+  ANONYMOUS
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  posts Post[]
+  id            Int           @id @default(autoincrement())
+  email         String        @unique
+  name          String?
+  address       String?
+  password      String?
+}
+
+model Product {
+  id                Int               @id @default(autoincrement())
+  name              String
+  description       String?
+  price             Float
+  photo             String?
+  published         Boolean           @default(false)
+  quantity          Int
+}
+
+model Cart {
+  id                 Int               @id @default(autoincrement())
+  userId             Int
+  total              Float
+  status             String
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+}
+
+model Order {
+  id                 Int               @id @default(autoincrement())
+  userId             Int
+  total              Float
+  status             String
+  createdAt          DateTime          @default(now())
+  updatedAt          DateTime          @updatedAt
+}
+
+model Category {
+  id                 Int               @id @default(autoincrement())
+  name               String
+}
+
+model ProductCategory {
+  id                 Int               @id @default(autoincrement())
+  productId          Int
+  categoryId         Int
+
+  @@unique([productId, categoryId])
+}
+
+model ProductOrder {
+  id                 Int               @id @default(autoincrement())
+  productId          Int
+  orderId            Int
+}
+
+model ProductCart {
+  id                 Int               @id @default(autoincrement())
+  productId          Int
+  cartId             Int
+}
+
+model ProductUser {
+  id                 Int               @id @default(autoincrement())
+  productId          Int
+  userId             Int
 }
