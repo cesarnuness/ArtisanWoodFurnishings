@@ -3,7 +3,7 @@ import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdatePatchCategoryDto } from './dto/update-patch-category.dto';
 import { UpdatePutCategoryDto } from './dto/update-put-category.dto';
-import { PrismaService } from 'src/prisma.service';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 describe('CategoriesService', () => {
   let service: CategoriesService;
