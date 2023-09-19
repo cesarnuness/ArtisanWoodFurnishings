@@ -1,4 +1,4 @@
-## Estratégias
+## Estratégias de Otimização
 
 - NGIX
 - Jobs assíncronos (Payment Queue, render 'Thank you').
