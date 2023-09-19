@@ -8,7 +8,6 @@ import { ElasticSearchModule } from './elastic-search/elastic-search.module';
 import { PaymentModule } from './payment/payment.module';
 import { AwsDeploymentModule } from './aws-deployment/aws-deployment.module';
 import { ProductsModule } from './products/products.module';
-import TestController from './test/test.controller';
 import { CategoriesModule } from './categories/categories.module';
 
 @Module({
@@ -22,7 +21,7 @@ import { CategoriesModule } from './categories/categories.module';
     ProductsModule,
     CategoriesModule,
   ],
-  controllers: [AppController, TestController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
