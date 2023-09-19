@@ -1,3 +1,13 @@
+## Estratégias
+
+- NGIX
+- Jobs assíncronos (Payment Queue, render 'Thank you').
+- Pool banco de dados
+- Caching
+- Worker
+- RPM (Otimização)
+- CDN
+
 ## Conceitos
 - Git
 - Dependências (Packages.json)
@@ -25,6 +35,9 @@
 - Nest
 - Postgres
 - Docker
+- Redis (Cache e Filas)
+- Bull (Nodejs)
+
 
 ## Etapas do Projeto
 
